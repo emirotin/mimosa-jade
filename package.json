@@ -1,0 +1,31 @@
+{
+  "name": "mimosa-jade",
+  "version": "1.0.0",
+  "homepage": "https://github.com/dbashford/mimosa-jade",
+  "author": "David Bashford",
+  "description": "A Jade client template compiler for Mimosa 2.0+",
+  "contributors": [
+    {
+      "name": "David Bashford",
+      "email": "dbashford@hotmail.com"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dbashford/mimosa-jade"
+  },
+  "keywords": [
+    "mimosa",
+    "mmodule",
+    "compiler",
+    "jade"
+  ],
+  "dependencies": {
+    "jade": "0.35.0"
+  },
+  "license": "MIT",
+  "main": "./src",
+  "engines": {
+    "node": ">=0.10"
+  }
+}
