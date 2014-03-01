@@ -3,16 +3,16 @@
 exports.defaults = function() {
   return {
     jade: {
-      extensions: [ "jade" ],
+      extensions: [ "jade" ]
     }
   };
 };
 
 exports.placeholder = function() {
-  return "\t\n\n"+
-         "  # jade:               # config settings for the Jade compiler module\n" +
-         "    # lib: undefined    # use this property to provide a specific version of Jade\n" +
-         "    # extensions: [\"jade\"]  # default extensions for Jade files\n";
+  return "\t\n\n" +
+         "  jade:               # config settings for the Jade compiler module\n" +
+         "    lib: undefined    # use this property to provide a specific version of Jade\n" +
+         "    extensions: [\"jade\"]  # default extensions for Jade files\n";
 };
 
 exports.validate = function( config, validators ) {
@@ -21,7 +21,7 @@ exports.validate = function( config, validators ) {
   if ( validators.ifExistsIsObject( errors, "jade config", config.jade ) ) {
 
     if ( !config.jade.lib ) {
-      config.jade.lib = require( 'jade' );
+      config.jade.lib = require( "jade" );
     }
 
     if ( validators.isArrayOfStringsMustExist( errors, "jade.extensions", config.jade.extensions ) ) {
@@ -33,6 +33,3 @@ exports.validate = function( config, validators ) {
 
   return errors;
 };
-
-
-
