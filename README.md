@@ -25,5 +25,5 @@ jade:
   extensions: [ "jade" ]
 ```
 
-* `lib`: You may want to use this module but may not be ready to use the latest version of Jade. Using the `lib` property you can provide a specific version of Jade if the one being used by this module isn't to your liking. To provide a specific version, you must have it `npm install`ed into your project and then provide it to `lib`. For instance: `lib: require('jade')`.
+* `lib`: You may want to use this module but may not be ready to use the latest version of Jade. Using the `lib` property you can provide a specific version of Jade if the one being used by this module isn't to your liking. To provide a specific version, you must have it `npm install`ed into your project and then provide it to `lib`. For instance: `lib: require('jade')`. To use a version of jade prior to `1.0`, use mimosa-jade `1.0.1`.
 * `extensions`: an array of strings, the extensions of your Jade files.

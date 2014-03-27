@@ -36,11 +36,10 @@ var compile = function ( mimosaConfig, file, cb ) {
   try {
     var opts = {
       compileDebug: false,
-      client: true,
       filename: file.inputFileName
     };
 
-    output = mimosaConfig.jade.lib.compile( file.inputFileText, opts);
+    output = mimosaConfig.jade.lib.compileClient( file.inputFileText, opts);
   } catch ( err ) {
     error = err;
   }

@@ -1,6 +1,6 @@
 {
   "name": "mimosa-jade",
-  "version": "1.0.1",
+  "version": "2.0.0",
   "homepage": "https://github.com/dbashford/mimosa-jade",
   "author": "David Bashford",
   "description": "A Jade client template compiler for Mimosa 2.0+",
@@ -21,7 +21,7 @@
     "jade"
   ],
   "dependencies": {
-    "jade": "0.35.0"
+    "jade": "1.3.0"
   },
   "license": "MIT",
   "main": "./src",
