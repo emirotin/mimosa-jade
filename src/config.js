@@ -3,7 +3,9 @@
 exports.defaults = function() {
   return {
     jade: {
-      extensions: [ "jade" ]
+      extensions: [ "jade" ],
+      "static": false,
+      staticContext: null
     }
   };
 };
@@ -12,7 +14,10 @@ exports.placeholder = function() {
   return "\t\n\n" +
          "  jade:               # config settings for the Jade compiler module\n" +
          "    lib: undefined    # use this property to provide a specific version of Jade\n" +
-         "    extensions: [\"jade\"]  # default extensions for Jade files\n";
+         "    extensions: [\"jade\"]  # default extensions for Jade files\n" +
+         "    static: false # if set to true, templates are compiled to static HTML\n" +
+         "    staticContext: null # an object passed to the template when converting to static HTML." +
+         " If it's a function, it's called and the result is used as a context.\n";
 };
 
 exports.validate = function( config, validators ) {
