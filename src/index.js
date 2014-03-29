@@ -3,16 +3,10 @@
 var path = require( "path" )
   , config = require( "./config" )
   , getExtensions = function ( mimosaConfig ) {
-    return mimosaConfig.jade.extensions;
-  }
-  , getIsStatic = function ( mimosaConfig ) {
-    return !!mimosaConfig.jade.static;
+    return mimosaConfig.jadeStatic.extensions;
   }
   , getStaticContext = function ( mimosaConfig ) {
-    if ( !getIsStatic( mimosaConfig ) ) {
-      return null;
-    }
-    var context = mimosaConfig.jade.staticContext;
+    var context = mimosaConfig.jadeStatic.staticContext;
     if (typeof context === 'function') {
       context = context();
     }
@@ -20,28 +14,11 @@ var path = require( "path" )
   };
 
 var prefix = function ( mimosaConfig, libraryPath ) {
-  var isStatic = getIsStatic( mimosaConfig ),
-    res;
   if ( mimosaConfig.template.wrapType === "amd" ) {
-    res = "define([";
-    if ( !isStatic ) {
-      res += "'" + libraryPath + "'";
-    }
-    res += "], function (";
-    if ( !isStatic ) {
-      res += "jade";
-    }
-    res += "){ var templates = {};\n";
-  } else if ( mimosaConfig.template.wrapType === "common" ) {
-    res = "";
-    if ( !isStatic ) {
-      res += "var jade = require('" + mimosaConfig.template.commonLibPath + "');\n";
-    }
-    res += "var templates = {};\n";
+    return "define([], function (){ var templates = {};\n";
   } else {
-    res = "var templates = {};\n";
+    return "var templates = {};\n";
   }
-  return res;
 };
 
 var suffix = function ( mimosaConfig ) {
@@ -55,10 +32,7 @@ var suffix = function ( mimosaConfig ) {
 };
 
 var compile = function ( mimosaConfig, file, cb ) {
-  var error
-    , output
-    , isStatic = getIsStatic( mimosaConfig )
-    , staticContext;
+  var error, output, context;
 
   try {
     var opts = {
@@ -66,14 +40,10 @@ var compile = function ( mimosaConfig, file, cb ) {
       filename: file.inputFileName
     };
 
-    if ( !isStatic ) {
-      output = mimosaConfig.jade.lib.compileClient( file.inputFileText, opts);
-    } else {
-      output = mimosaConfig.jade.lib.compile( file.inputFileText, opts);
-      staticContext = getStaticContext( mimosaConfig );
-      output = output( staticContext );
-      output = JSON.stringify( output );
-    }
+    output = mimosaConfig.jadeStatic.lib.compile( file.inputFileText, opts);
+    context = getStaticContext( mimosaConfig );
+    output = output( context );
+    output = JSON.stringify( output );
   } catch ( err ) {
     error = err;
   }
@@ -82,9 +52,8 @@ var compile = function ( mimosaConfig, file, cb ) {
 };
 
 module.exports = {
-  name: "jade",
+  name: "jadeStatic",
   compilerType: "template",
-  clientLibrary: path.join( __dirname, "client", "jade-runtime.js" ),
   compile: compile,
   suffix: suffix,
   prefix: prefix,

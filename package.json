@@ -1,18 +1,18 @@
 {
-  "name": "mimosa-jade",
-  "version": "2.0.0",
-  "homepage": "https://github.com/dbashford/mimosa-jade",
-  "author": "David Bashford",
-  "description": "A Jade client template compiler for Mimosa 2.0+",
+  "name": "mimosa-jade-static",
+  "version": "0.1.0",
+  "homepage": "https://github.com/emirotin/mimosa-jade-static",
+  "author": "Eugene Mirotin <emirotin@gmail.com>",
+  "description": "A Jade static client template compiler for Mimosa 2.0+",
   "contributors": [
     {
-      "name": "David Bashford",
-      "email": "dbashford@hotmail.com"
+      "name": "Eugene Mirotin",
+      "email": "emirotin@gmail.com"
     }
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/dbashford/mimosa-jade"
+    "url": "https://github.com/emirotin/mimosa-jade-static"
   },
   "keywords": [
     "mimosa",

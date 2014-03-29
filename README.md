@@ -1,21 +1,20 @@
-mimosa-jade
+mimosa-jade-static
 ===========
 
 ## Overview
 
-This is a Jade compiler for the Mimosa build tool. This module is for use with Mimosa `2.0+`.
-This replicates the functionality of the Jade compiler that was built into Mimosa before `2.0`.
+This is a Jade to HTML compiler for the Mimosa build tool. This module is for use with Mimosa `2.0+`.
 
 For more information regarding Mimosa, see http://mimosa.io
 
 ## Usage
 
-Add `'jade'` to your list of modules. That's all!
+Add `'jade-static'` to your list of modules. That's all!
 Mimosa will install the module for you when you start `mimosa watch` or `mimosa build`.
 
 ## Functionality
 
-This module will compile Jade files during `mimosa watch` and `mimosa build`.
+This module will compile Jade files to HTML during `mimosa watch` and `mimosa build`.
 
 This module utilizes all of the built-in template behavior that comes with Mimosa's basic template compiler.
 See the [mimosa website](http://mimosa.io/compilers.html#mt) for more information about how templates are treated
@@ -27,8 +26,7 @@ or check out the various [`template` configuration options](http://mimosa.io/con
 jade:
   lib: undefined
   extensions: [ "jade" ]
-  static: false
-  staticContext: null
+  context: null
 ```
 
 * `lib`: You may want to use this module but may not be ready to use the latest version of Jade.
@@ -37,6 +35,5 @@ isn't to your liking. To provide a specific version, you must have it `npm insta
 then provide it to `lib`. For instance: `lib: require('jade')`.
 To use a version of jade prior to `1.0`, use mimosa-jade `1.0.1`.
 * `extensions`: an array of strings, the extensions of your Jade files.
-* `static`: when set to true, will compile Jade templates to static HTML by executing the compiled function.
-* `staticContext`: an object passed to the compiled template function when generating HTML.
-If `staticContext` is a function itself, it's being executed and the result is used as a context for the template.
+* `context`: an object passed to the compiled template function when generating HTML.
+If `context` is a function itself, it's being executed and the result is used as a context for the template.
