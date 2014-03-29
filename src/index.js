@@ -72,7 +72,7 @@ var compile = function ( mimosaConfig, file, cb ) {
       output = mimosaConfig.jade.lib.compile( file.inputFileText, opts);
       staticContext = getStaticContext( mimosaConfig );
       output = output( staticContext );
-      output = JSON.stringify(output);
+      output = JSON.stringify( output );
     }
   } catch ( err ) {
     error = err;
