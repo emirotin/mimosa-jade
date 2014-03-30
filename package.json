@@ -1,6 +1,6 @@
 {
   "name": "mimosa-jade-static",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "homepage": "https://github.com/emirotin/mimosa-jade-static",
   "author": "Eugene Mirotin <emirotin@gmail.com>",
   "description": "A Jade static client template compiler for Mimosa 2.0+",
